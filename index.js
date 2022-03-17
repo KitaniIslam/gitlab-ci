@@ -1,2 +1,5 @@
-console.log("This script run from js file");
-console.log("=======> env: ", { ENV: process.env });
+const fs = require("fs");
+
+let rawdata = fs.readFileSync(process.env.TRIGGER_PAYLOAD);
+let webhook_event = JSON.parse(rawdata);
+console.log("=======> env: ", { webhook_event });
